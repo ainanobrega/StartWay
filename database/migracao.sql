@@ -1,0 +1,8 @@
+-- StartWay: execute após backup. Revise os nomes/constraints existentes antes de aplicar.
+ALTER TABLE candidaturas ADD UNIQUE KEY uq_candidatura_vaga_jovem (vaga_id, jovem_id);
+ALTER TABLE jovem_habilidades ADD UNIQUE KEY uq_jovem_habilidade (jovem_id, habilidade_id);
+ALTER TABLE jovens ADD COLUMN bio VARCHAR(500) NULL, ADD COLUMN cidade VARCHAR(120) NULL, ADD COLUMN formacao VARCHAR(180) NULL, ADD COLUMN linkedin VARCHAR(255) NULL, ADD COLUMN github VARCHAR(255) NULL, ADD COLUMN portfolio VARCHAR(255) NULL, ADD COLUMN data_nascimento DATE NULL;
+ALTER TABLE cursos ADD COLUMN categoria VARCHAR(100) NULL;
+CREATE TABLE IF NOT EXISTS vaga_habilidades (vaga_id INT NOT NULL, habilidade_id INT NOT NULL, PRIMARY KEY(vaga_id, habilidade_id), CONSTRAINT fk_vh_vaga FOREIGN KEY(vaga_id) REFERENCES vagas(id) ON DELETE CASCADE, CONSTRAINT fk_vh_habilidade FOREIGN KEY(habilidade_id) REFERENCES habilidades(id) ON DELETE CASCADE);
+CREATE TABLE IF NOT EXISTS recuperacao_senha (id INT AUTO_INCREMENT PRIMARY KEY, usuario_id INT NOT NULL, token_hash CHAR(64) NOT NULL UNIQUE, expira_em DATETIME NOT NULL, usado_em DATETIME NULL, criado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP, INDEX idx_recuperacao_usuario(usuario_id), CONSTRAINT fk_rec_usuario FOREIGN KEY(usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE);
+CREATE TABLE IF NOT EXISTS tentativas_login (id INT AUTO_INCREMENT PRIMARY KEY, chave_hash CHAR(64) NOT NULL, tentativas INT NOT NULL DEFAULT 0, bloqueado_ate DATETIME NULL, atualizado_em DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, UNIQUE KEY uq_tentativa_chave(chave_hash));

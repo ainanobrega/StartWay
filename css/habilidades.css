@@ -1,0 +1,538 @@
+/* =========================================================
+   STARTWAY — HABILIDADES & COMPETÊNCIAS
+   (o menu lateral fica em menu.css)
+   ========================================================= */
+
+:root {
+    --hab-roxo: #6d28d9;
+    --hab-escuro: #2d174c;
+    --hab-texto: #24143d;
+    --hab-suave: #817391;
+    --hab-sombra: 0 18px 55px rgba(46, 19, 89, .11);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { min-height: 100%; }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--hab-texto);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(167, 139, 250, .28), transparent 28rem),
+        radial-gradient(circle at 55% 95%, rgba(124, 58, 237, .12), transparent 30rem),
+        #f7f3ff;
+}
+
+button, input, select { font: inherit; }
+
+/* ---------- Conteúdo ---------- */
+.conteudo {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 90% 0%, rgba(196, 181, 253, .38), transparent 26rem),
+        radial-gradient(ellipse at 10% 90%, rgba(233, 213, 255, .6), transparent 32rem),
+        linear-gradient(135deg, #faf8ff, #f3edff 52%, #fbfaff);
+}
+
+.conteudo::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -155px;
+    right: -100px;
+    width: 340px;
+    height: 340px;
+    border: 1px solid rgba(124, 58, 237, .12);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 24px rgba(124, 58, 237, .035),
+        0 0 0 54px rgba(124, 58, 237, .025);
+    pointer-events: none;
+}
+
+.habilidades-pagina {
+    position: relative;
+    width: 100%;
+    max-width: 1190px;
+    margin: 0 auto;
+    padding: 20px 42px 42px; /* topo menor: o menu.css já reserva espaço p/ o ☰ */
+}
+
+/* ---------- Cabeçalho roxo ---------- */
+.habilidades-topo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-bottom: 27px;
+    padding: clamp(28px, 4vw, 44px);
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 27px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 88% 18%, rgba(216, 180, 254, .28), transparent 13rem),
+        linear-gradient(115deg, #35145c, #6d28d9 55%, #8b5cf6);
+    box-shadow: 0 22px 55px rgba(91, 33, 182, .22);
+    animation: habSubir .55s ease both;
+}
+
+.habilidades-topo::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -85px;
+    right: -32px;
+    width: 255px;
+    height: 255px;
+    border: 1px solid rgba(255, 255, 255, .23);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 19px rgba(255, 255, 255, .055),
+        0 0 0 43px rgba(255, 255, 255, .035),
+        0 0 0 69px rgba(255, 255, 255, .025);
+    pointer-events: none;
+}
+
+.habilidades-topo::after {
+    content: "✦";
+    position: absolute;
+    top: 28px;
+    right: 30%;
+    color: rgba(255, 255, 255, .62);
+    font-size: 22px;
+    text-shadow: 0 0 24px rgba(255, 255, 255, .6);
+    animation: habPiscar 3.5s ease-in-out infinite;
+}
+
+.hero-etiqueta,
+.secao-etiqueta {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+.hero-etiqueta { color: #e9ddff; }
+.secao-etiqueta { color: var(--hab-roxo); }
+
+.habilidades-topo h1 {
+    max-width: 700px;
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 850;
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+    text-wrap: balance;
+}
+.habilidades-topo h1 span { color: #eadcff; }
+
+.habilidades-topo p {
+    max-width: 630px;
+    margin: 0;
+    color: rgba(255, 255, 255, .86);
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* ---------- Cartões ---------- */
+.habilidades-card {
+    margin-bottom: 24px;
+    padding: clamp(21px, 3vw, 31px);
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 23px;
+    background: rgba(255, 255, 255, .83);
+    box-shadow: var(--hab-sombra);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    animation: habSubir .6s ease both;
+}
+
+.habilidades-card:nth-of-type(2) { animation-delay: .08s; }
+
+.habilidades-card > h2 {
+    margin: 0 0 12px;
+    color: var(--hab-escuro);
+    font-size: clamp(19px, 2vw, 24px);
+    font-weight: 820;
+    letter-spacing: -.55px;
+}
+
+.habilidades-card > p {
+    margin: 0;
+    color: var(--hab-suave);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.card-titulo-linha {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+}
+
+.card-titulo-linha h2 {
+    margin: 0;
+    color: var(--hab-escuro);
+    font-size: clamp(19px, 2vw, 24px);
+    font-weight: 820;
+    letter-spacing: -.55px;
+}
+
+.icone-card {
+    display: grid;
+    place-items: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #e6d9ff;
+    border-radius: 13px;
+    color: #7c3aed;
+    background: #f3edff;
+}
+
+.contador-habilidades {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 7px 12px;
+    border: 1px solid #e6d9ff;
+    border-radius: 999px;
+    color: var(--hab-roxo);
+    background: #f3edff;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* ---------- Mensagens ---------- */
+.mensagem-habilidade {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 22px;
+    padding: 14px 17px;
+    border: 1px solid #b8efd2;
+    border-radius: 14px;
+    color: #176744;
+    background: linear-gradient(110deg, #f0fdf6, #e7fbf0);
+    box-shadow: 0 8px 22px rgba(35, 20, 61, .04);
+    font-size: 13px;
+    font-weight: 650;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+    animation: habSubir .3s ease both;
+}
+
+.mensagem-habilidade::before {
+    content: "✓";
+    display: grid;
+    place-items: center;
+    flex: 0 0 22px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    color: #fff;
+    background: #10b981;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.mensagem-habilidade.erro {
+    border-color: #fecdd3;
+    color: #a51d45;
+    background: linear-gradient(110deg, #fff5f6, #fff0f2);
+}
+
+.mensagem-habilidade.erro::before {
+    content: "!";
+    background: #e11d48;
+}
+
+/* ---------- Formulário ---------- */
+.habilidades-formulario {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(170px, .8fr) auto;
+    align-items: end;
+    gap: 15px;
+}
+
+.habilidades-campo { min-width: 0; }
+
+.habilidades-campo label,
+.form-nivel label {
+    display: block;
+    margin-bottom: 8px;
+    color: #493261;
+    font-size: 12px;
+    font-weight: 780;
+}
+
+.habilidades-campo input,
+.habilidades-campo select,
+.form-nivel select {
+    display: block;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    border: 1px solid #ded2f1;
+    border-radius: 12px;
+    outline: none;
+    color: #34204b;
+    background: rgba(255, 255, 255, .94);
+    font-size: 13px;
+    transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.habilidades-campo input::placeholder { color: #a397b5; }
+
+.habilidades-campo input:hover,
+.habilidades-campo select:hover,
+.form-nivel select:hover { border-color: #c4b0eb; }
+
+.habilidades-campo input:focus,
+.habilidades-campo select:focus,
+.form-nivel select:focus {
+    border-color: #8b5cf6;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, .13);
+}
+
+.botao-habilidade {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(110deg, #8b5cf6, #5b21b6);
+    box-shadow: 0 9px 22px rgba(109, 40, 217, .24);
+    font-size: 13px;
+    font-weight: 800;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.botao-habilidade:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 13px 27px rgba(109, 40, 217, .31);
+}
+
+.botao-habilidade:active { transform: translateY(0); }
+
+/* ---------- Lista de habilidades ---------- */
+.lista-habilidades {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
+    align-items: stretch;
+    gap: 16px;
+}
+
+.habilidade-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+    padding: 22px 20px 20px;
+    overflow: hidden;
+    border: 1px solid #ece3fa;
+    border-radius: 18px;
+    background: linear-gradient(150deg, #fff, #faf7ff);
+    box-shadow: 0 7px 22px rgba(53, 20, 92, .055);
+    transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+}
+
+.habilidade-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #a78bfa, #6d28d9, #c4b5fd);
+}
+
+.habilidade-item:hover {
+    transform: translateY(-4px);
+    border-color: #d2bdf6;
+    box-shadow: 0 17px 34px rgba(76, 29, 149, .12);
+}
+
+.habilidade-nome {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    color: var(--hab-escuro);
+    font-size: 16px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.habilidade-simbolo {
+    display: grid;
+    place-items: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border: 1px solid #e6d9ff;
+    border-radius: 11px;
+    color: #7c3aed;
+    background: #f3edff;
+    font-size: 17px;
+}
+
+.form-nivel {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid #f0e9fa;
+}
+
+.form-nivel label { font-size: 11px; }
+
+.form-nivel select {
+    min-height: 42px;
+    padding: 9px 11px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.acoes-habilidade { margin: 0; }
+
+.botao-remover {
+    width: 100%;
+    min-height: 38px;
+    padding: 8px 12px;
+    border: 1px solid #f3d3dc;
+    border-radius: 10px;
+    color: #b4234c;
+    background: #fff5f7;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: color .2s ease, background .2s ease, border-color .2s ease;
+}
+
+.botao-remover:hover {
+    border-color: #e11d48;
+    color: #fff;
+    background: #e11d48;
+}
+
+/* ---------- Estado vazio ---------- */
+.habilidades-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 180px;
+    padding: 28px 20px;
+    border: 1px dashed #d7c5f2;
+    border-radius: 17px;
+    color: #857695;
+    background: linear-gradient(145deg, #faf7ff, #fff);
+    text-align: center;
+}
+
+.vazio-icone {
+    display: grid;
+    place-items: center;
+    width: 46px;
+    height: 46px;
+    margin-bottom: 13px;
+    border: 1px solid #e5d8fb;
+    border-radius: 15px;
+    color: #7c3aed;
+    background: #f1e9ff;
+    font-size: 24px;
+}
+
+.habilidades-vazio h3 { margin: 0 0 6px; color: #382151; font-size: 16px; }
+.habilidades-vazio p { max-width: 440px; margin: 0; font-size: 13px; line-height: 1.7; }
+
+.habilidades-rodape {
+    padding: 8px 0 20px;
+    color: var(--hab-suave);
+    font-size: 12px;
+    text-align: center;
+}
+
+/* ---------- Foco e animações ---------- */
+input:focus-visible,
+select:focus-visible,
+.botao-habilidade:focus-visible,
+.botao-remover:focus-visible {
+    outline: 3px solid rgba(139, 92, 246, .38);
+    outline-offset: 3px;
+}
+
+@keyframes habSubir {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes habPiscar {
+    0%, 100% { opacity: .45; transform: scale(.9) rotate(0deg); }
+    50%      { opacity: 1;   transform: scale(1.12) rotate(12deg); }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1050px) {
+    .habilidades-pagina { padding: 20px 30px 30px; }
+
+    .habilidades-formulario { grid-template-columns: minmax(0, 1fr) minmax(150px, .7fr); }
+
+    .botao-habilidade {
+        grid-column: 1 / -1;
+        justify-self: start;
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 760px) {
+    .habilidades-pagina { padding: 12px 16px 28px; }
+
+    .habilidades-topo { padding: 27px 22px; border-radius: 21px; }
+    .habilidades-topo h1 { font-size: clamp(28px, 7vw, 36px); }
+    .habilidades-topo p { font-size: 13px; }
+
+    .habilidades-card { padding: 20px 16px; border-radius: 19px; }
+
+    .habilidades-formulario { grid-template-columns: 1fr; gap: 14px; }
+
+    .botao-habilidade { grid-column: auto; width: 100%; }
+
+    .lista-habilidades { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 400px) {
+    .habilidades-pagina { padding-right: 12px; padding-left: 12px; }
+    .habilidades-topo { padding: 23px 18px; }
+    .habilidades-topo::before { right: -130px; }
+    .habilidades-topo::after { right: 18px; }
+    .habilidades-card { padding: 18px 14px; }
+    .habilidade-item { padding: 20px 15px 17px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

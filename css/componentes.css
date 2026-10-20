@@ -1,0 +1,217 @@
+
+/* =========================================
+   COMPONENTES.CSS
+   Elementos reutilizáveis do StartWay
+========================================= */
+
+
+/* =========================================
+   1. ETIQUETAS E TEXTOS DE DESTAQUE
+========================================= */
+
+.etiqueta {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: var(--roxo-medio);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+
+/* =========================================
+   2. BOTÕES
+========================================= */
+
+/* Estilo compartilhado por todos os botões */
+
+.botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 40px;
+    padding: 10px 16px;
+
+    border: 1px solid transparent;
+    border-radius: 6px;
+
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+}
+
+
+/* Botão principal */
+
+.botao-principal {
+    background: var(--roxo);
+    color: var(--branco);
+}
+
+.botao-principal:hover {
+    background: var(--roxo-escuro);
+}
+
+
+/* Botão secundário */
+
+.botao-secundario {
+    border-color: var(--borda);
+    background: transparent;
+    color: var(--roxo);
+}
+
+.botao-secundario:hover {
+    background: #e9e3f2;
+}
+
+
+/* Botão ocupando toda a largura */
+
+.botao-bloco {
+    display: flex;
+    width: 100%;
+}
+
+
+/* =========================================
+   3. CARTÕES GENÉRICOS
+========================================= */
+
+.card {
+    min-width: 0;
+    padding: 20px;
+
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+
+    background: var(--branco);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--roxo);
+    font-size: 17px;
+}
+
+.card p {
+    color: var(--texto-suave);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   4. BARRAS DE PROGRESSO
+========================================= */
+
+.barra-progresso {
+    width: 100%;
+    height: 8px;
+
+    overflow: hidden;
+    border-radius: 20px;
+
+    background: #ece7f2;
+}
+
+.barra-progresso span {
+    display: block;
+    height: 100%;
+
+    border-radius: inherit;
+    background: var(--lilas);
+
+    transition: width 0.3s ease;
+}
+
+
+/* =========================================
+   5. ETIQUETAS DE HABILIDADES
+========================================= */
+
+.habilidade {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 8px 10px;
+
+    border: 1px solid #e5dcf2;
+    border-radius: 7px;
+
+    background: #f8f5fc;
+    color: var(--roxo);
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+   6. LINKS DE AÇÃO
+========================================= */
+
+.link-painel {
+    display: inline-block;
+
+    margin-top: 16px;
+
+    color: var(--roxo);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.link-painel:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   7. ACESSIBILIDADE
+========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--lilas);
+    outline-offset: 3px;
+}
+
+
+/* =========================================
+   8. MOVIMENTOS REDUZIDOS
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .botao,
+    .card,
+    .barra-progresso span {
+        transition: none;
+    }
+}
+.etiqueta {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--roxo-medio);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}   

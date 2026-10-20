@@ -1,0 +1,290 @@
+
+/* =========================================
+   LAYOUT.CSS
+   Estrutura geral das páginas
+========================================= */
+
+
+/* =========================================
+   1. CONTAINER PRINCIPAL
+========================================= */
+
+.layout {
+    width: min(1440px, calc(100% - 48px));
+    min-height: calc(100vh - 64px);
+    margin: 32px auto;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    background: var(--branco);
+    box-shadow: 0 12px 40px rgba(38, 7, 95, 0.06);
+}
+
+
+.conteudo {
+    min-width: 0;
+    padding: 28px 32px;
+}
+
+/* =========================================
+   3. CABEÇALHO
+========================================= */
+
+.cabecalho {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+    min-height: 46px;
+    margin-bottom: 34px;
+}
+
+
+/* Logo StartWay */
+
+.logo {
+    display: inline-block;
+
+    padding: 12px 16px;
+    border-radius: 5px;
+
+    background: var(--roxo);
+    color: var(--branco);
+
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+
+/* Área das ações do cabeçalho */
+
+.acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+
+/* =========================================
+   4. CAMPO DE BUSCA
+========================================= */
+
+.form-busca {
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+    border-radius: 5px;
+
+    background: #e2dce9;
+}
+
+.form-busca input {
+    width: 200px;
+    min-width: 0;
+
+    padding: 10px 12px;
+    border: 0;
+    outline: none;
+
+    background: transparent;
+    color: var(--texto);
+
+    font-size: 12px;
+}
+
+.form-busca input::placeholder {
+    color: var(--texto-suave);
+}
+
+
+/* Botão de pesquisa */
+
+.form-busca button {
+    width: 36px;
+    height: 36px;
+
+    border: 0;
+
+    background: var(--roxo);
+    color: var(--branco);
+
+    cursor: pointer;
+}
+
+
+/* Link de sair */
+
+.link-sair {
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+
+/* =========================================
+   5. RODAPÉ
+========================================= */
+
+.rodape {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+    padding: 22px 0;
+
+    border-top: 1px solid var(--borda);
+
+    color: var(--texto-suave);
+    font-size: 11px;
+}
+
+.rodape span:first-child {
+    color: var(--roxo);
+    font-weight: 800;
+}
+
+
+/* =========================================
+   6. RESPONSIVIDADE DO LAYOUT
+========================================= */
+
+@media (max-width: 1050px) {
+    .layout {
+        width: calc(100% - 32px);
+        margin: 24px auto;
+
+        min-height: calc(100vh - 48px);
+    }
+
+    .conteudo {
+        padding-right: 22px;
+        padding-left: 22px;
+    }
+}
+
+
+@media (max-width: 760px) {
+    .layout {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+
+        min-height: calc(100vh - 20px);
+    }
+
+    .conteudo {
+        padding: 16px;
+    }
+
+    .cabecalho {
+        flex-wrap: wrap;
+        gap: 12px;
+
+        margin-bottom: 28px;
+    }
+
+    .acoes-cabecalho {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .form-busca {
+        flex: 1;
+    }
+
+    .form-busca input {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 420px) {
+    .logo {
+        padding: 10px 12px;
+        font-size: 15px;
+    }
+
+    .rodape {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+
+/* ========================================
+   REFINAMENTO DO LAYOUT — STARTWAY
+   ======================================== */
+
+.layout {
+    width: min(1500px, calc(100% - 40px));
+    min-height: calc(100vh - 40px);
+    margin: 20px auto;
+    border: 1px solid #ebe5f4;
+    border-radius: 22px;
+    box-shadow: 0 12px 45px rgba(38, 7, 95, 0.045);
+}
+
+.conteudo {
+    padding: 30px 34px;
+}
+
+.cabecalho {
+    min-height: 48px;
+    margin-bottom: 30px;
+    gap: 22px;
+}
+
+.logo {
+    padding: 10px 15px;
+    border-radius: 9px;
+    font-size: 18px;
+}
+
+.form-busca {
+    border: 1px solid #e9e2f2;
+    border-radius: 10px;
+    background: #f8f6fb;
+}
+
+.form-busca input {
+    padding: 11px 14px;
+}
+
+.form-busca button {
+    width: 40px;
+    height: 40px;
+}
+
+.link-sair {
+    padding: 9px 13px;
+    border-radius: 9px;
+    transition: background 0.2s ease;
+}
+
+.link-sair:hover {
+    background: #f3eefb;
+    color: var(--roxo);
+}
+
+.rodape {
+    margin-top: 28px;
+    padding-top: 20px;
+}
+
+@media (max-width: 760px) {
+    .layout {
+        width: calc(100% - 16px);
+        margin: 8px auto;
+        border-radius: 16px;
+    }
+
+    .conteudo {
+        padding: 18px 15px;
+    }
+
+    .cabecalho {
+        margin-bottom: 24px;
+    }
+}

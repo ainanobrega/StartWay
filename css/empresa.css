@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #f8f6fc;
+    color: #2d2140;
+    font-family: Inter, system-ui, sans-serif
+}
+
+.empresa-container {
+    max-width: 1160px;
+    width: calc(100% - 48px);
+    margin: 32px auto
+}
+
+.empresa-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding: 18px 22px;
+    background: #fff;
+    border: 1px solid #e9e2f3;
+    border-radius: 18px;
+    margin-bottom: 28px
+}
+
+.empresa-topo>a {
+    font-weight: 800;
+    color: #673ab7;
+    text-decoration: none;
+    font-size: 20px
+}
+
+.empresa-topo nav {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap
+}
+
+.empresa-topo nav a {
+    color: #4c3c60;
+    text-decoration: none;
+    padding: 8px 10px;
+    border-radius: 8px
+}
+
+.empresa-topo nav a[aria-current=page],
+.empresa-topo nav a:hover {
+    background: #eee5ff;
+    color: #5424a6
+}
+
+.empresa-card {
+    background: #fff;
+    padding: 22px;
+    border: 1px solid #e8e0f1;
+    border-radius: 18px;
+    margin: 18px 0;
+    box-shadow: 0 8px 25px #38234d0a
+}
+
+.empresa-card h2 {
+    margin-top: 0
+}
+
+.empresa-card form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 18px
+}
+
+.empresa-card label,
+.filtro-candidatos label {
+    font-weight: 600
+}
+
+.empresa-card select,
+.filtro-candidatos select {
+    padding: 10px;
+    border: 1px solid #d9cce9;
+    border-radius: 10px;
+    background: #fff
+}
+
+.empresa-card button,
+.filtro-candidatos button {
+    padding: 11px 16px;
+    background: #673ab7;
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer
+}
+
+.filtro-candidatos {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0
+}
+
+.links-perfil {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap
+}
+
+.links-perfil a {
+    color: #673ab7
+}
+
+@media(max-width:600px) {
+    .empresa-container {
+        width: calc(100% - 28px);
+        margin: 18px auto
+    }
+
+    .empresa-topo {
+        align-items: flex-start
+    }
+
+    .empresa-topo nav {
+        gap: 6px
+    }
+}

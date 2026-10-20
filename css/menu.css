@@ -1,0 +1,301 @@
+/* ========================================
+   STARTWAY — MENU LATERAL (GAVETA)
+   Use em todas as páginas.
+======================================== */
+
+/* ---------- Tipografia e box-model iguais em todas as páginas ---------- */
+.botao-menu,
+.botao-fechar-menu,
+.menu-lateral,
+.menu-lateral * {
+    box-sizing: border-box;
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Botão hambúrguer ---------- */
+.botao-menu {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 1002;
+
+    display: grid;
+    place-items: center;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 14px;
+
+    color: #fff;
+    background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+    box-shadow: 0 8px 22px rgba(109, 40, 217, .3);
+
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+
+    transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+
+.botao-menu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(109, 40, 217, .4);
+}
+
+/* Some enquanto o menu está aberto (o X do menu assume) */
+.botao-menu[aria-expanded="true"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ---------- Fundo escurecido ---------- */
+.fundo-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+
+    background: rgba(20, 10, 35, .58);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: opacity .3s ease, visibility .3s ease;
+}
+
+.fundo-menu.aberto {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ---------- Menu lateral (fechado por padrão) ---------- */
+.layout {
+    display: block;
+    min-height: 100vh;
+}
+
+.layout .menu-lateral {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 265px;
+    max-width: 85vw;
+    height: 100vh;
+    min-height: 100vh;
+    padding: 24px 18px 24px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+
+    color: #fff;
+    background:
+        radial-gradient(circle at 10% 0%, rgba(192, 132, 252, .27), transparent 18rem),
+        linear-gradient(165deg, #261044 0%, #1a0d32 52%, #130b27 100%);
+
+    border-right: 1px solid rgba(255, 255, 255, .11);
+    box-shadow: 12px 0 40px rgba(28, 10, 55, .25);
+
+    transform: translateX(-100%) !important;
+    visibility: hidden !important;
+
+    transition: transform .3s ease, visibility .3s ease;
+}
+
+.layout .menu-lateral.aberto {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+}
+
+/* Círculos decorativos */
+.layout .menu-lateral::before {
+    content: "";
+    position: absolute;
+    top: 108px;
+    right: -68px;
+    width: 150px;
+    height: 150px;
+
+    border: 1px solid rgba(216, 180, 254, .2);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 18px rgba(216, 180, 254, .035),
+        0 0 0 38px rgba(216, 180, 254, .025);
+
+    pointer-events: none;
+}
+
+.layout .menu-lateral > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- Botão X ---------- */
+.botao-fechar-menu {
+    display: grid;
+    place-items: center;
+
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    margin: 0 0 18px;
+    padding: 0;
+
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 14px;
+
+    color: #fff;
+    background: linear-gradient(145deg, #8b5cf6, #6d28d9);
+    box-shadow: 0 8px 22px rgba(109, 40, 217, .3);
+
+    font-size: 25px;
+    line-height: 1;
+    cursor: pointer;
+
+    transition: transform .2s ease;
+}
+
+.botao-fechar-menu:hover {
+    transform: rotate(90deg);
+}
+
+/* ---------- Logo ---------- */
+.menu-lateral .marca-menu {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    min-height: 48px;
+    margin: 0 10px 14px;
+    text-decoration: none;
+}
+
+.menu-lateral .marca-menu img {
+    display: block;
+    width: 150px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* ---------- Saudação ---------- */
+.menu-lateral .saudacao {
+    margin: 0 7px 26px;
+    padding: 13px 14px;
+
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 14px;
+
+    color: #e7dcfa;
+    background: rgba(255, 255, 255, .065);
+
+    font-size: 12px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* ---------- Links ---------- */
+.menu-lateral .navegacao {
+    display: grid;
+    gap: 7px;
+}
+
+.menu-lateral .link-menu {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+
+    min-height: 47px;
+    padding: 12px 13px;
+
+    border: 1px solid transparent;
+    border-radius: 13px;
+
+    color: #c9badf;
+    font-size: 13px;
+    font-weight: 650;
+    text-decoration: none;
+
+    transition:
+        color .22s ease,
+        background .22s ease,
+        border-color .22s ease,
+        transform .22s ease;
+}
+
+.menu-lateral .link-menu::before {
+    content: "✧";
+    flex: 0 0 19px;
+    width: 19px;
+
+    color: #bca0f9;
+    font-size: 19px;
+    text-align: center;
+}
+
+.menu-lateral .link-menu:hover {
+    transform: translateX(3px);
+    color: #fff;
+    border-color: rgba(216, 180, 254, .15);
+    background: rgba(255, 255, 255, .075);
+}
+
+/* Página atual (funciona em qualquer aba) */
+.menu-lateral .link-menu.ativo {
+    color: #fff;
+    border-color: rgba(216, 180, 254, .18);
+    background: linear-gradient(110deg, rgba(139, 92, 246, .35), rgba(109, 40, 217, .17));
+    box-shadow: inset 3px 0 0 #c4b5fd;
+}
+
+.menu-lateral .link-menu.ativo::before {
+    content: "✦";
+    color: #e9d5ff;
+}
+
+/* Sair */
+.menu-lateral .link-sair {
+    margin-top: 10px;
+}
+
+.menu-lateral .link-sair::before {
+    content: "↪";
+}
+
+/* ---------- Conteúdo ---------- */
+.layout .conteudo {
+    width: 100%;
+    min-width: 0;
+    /* espaço para o botão ☰ não cobrir o conteúdo */
+    padding-top: 64px;
+}
+
+/* ---------- Foco acessível ---------- */
+.botao-menu:focus-visible,
+.botao-fechar-menu:focus-visible,
+.menu-lateral a:focus-visible {
+    outline: 3px solid rgba(196, 181, 253, .7);
+    outline-offset: 3px;
+}
+
+/* ---------- Menos animações ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .layout .menu-lateral,
+    .fundo-menu,
+    .botao-menu,
+    .botao-fechar-menu,
+    .menu-lateral .link-menu {
+        transition: none;
+    }
+}

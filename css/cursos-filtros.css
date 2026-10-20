@@ -1,0 +1,357 @@
+
+/* =========================================
+   STARTWAY — FILTROS E DETALHES VISUAIS
+========================================= */
+
+.pagina-biblioteca {
+    font-family: "DM Sans", sans-serif;
+}
+
+.pagina-biblioteca h1,
+.pagina-biblioteca h2,
+.pagina-biblioteca h3,
+.marca-menu {
+    font-family: "Manrope", sans-serif;
+}
+
+/* Remove a antiga borda animada */
+.pagina-biblioteca .curso-item::before {
+    content: none !important;
+    animation: none !important;
+}
+
+/* =========================================
+   DECORAÇÃO LATERAL
+========================================= */
+
+.pagina-biblioteca .biblioteca-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.pagina-biblioteca .biblioteca-hero::before,
+.pagina-biblioteca .biblioteca-hero::after {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.pagina-biblioteca .biblioteca-hero::before {
+    content: "";
+    width: 190px;
+    height: 190px;
+    right: 4%;
+    top: -75px;
+    border: 1px solid rgba(126, 77, 200, 0.18);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 18px rgba(126, 77, 200, 0.035),
+        0 0 0 38px rgba(126, 77, 200, 0.025);
+}
+
+.pagina-biblioteca .biblioteca-hero::after {
+    content: "✦";
+    right: 8%;
+    bottom: 18px;
+    color: #8a5bd0;
+    font-size: 35px;
+    opacity: 0.65;
+    transform: rotate(12deg);
+}
+
+.pagina-biblioteca .catalogo {
+    position: relative;
+    isolation: isolate;
+}
+
+.pagina-biblioteca .catalogo::before,
+.pagina-biblioteca .catalogo::after {
+    position: absolute;
+    z-index: -1;
+    color: #9b78d4;
+    opacity: 0.55;
+    pointer-events: none;
+}
+
+.pagina-biblioteca .catalogo::before {
+    content: "✧";
+    top: 155px;
+    left: -25px;
+    font-size: 31px;
+}
+
+.pagina-biblioteca .catalogo::after {
+    content: "✦";
+    top: 430px;
+    right: -23px;
+    font-size: 23px;
+}
+
+/* =========================================
+   CARDS DOS CURSOS
+========================================= */
+
+.pagina-biblioteca .curso-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #eee7f7;
+    border-radius: 17px;
+    background: #fff;
+    box-shadow: 0 6px 22px rgba(55, 25, 100, 0.055);
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+/* Pequeno detalhe roxo na base, sem animação */
+.pagina-biblioteca .curso-item::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 18px;
+    width: 38px;
+    height: 3px;
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(90deg, #5426a8, #c6a3ff);
+    opacity: 0.8;
+    transition: width 0.25s ease;
+    pointer-events: none;
+}
+
+.pagina-biblioteca .curso-item:hover {
+    transform: translateY(-4px);
+    border-color: #ddcff4;
+    box-shadow: 0 14px 30px rgba(55, 25, 100, 0.11);
+}
+
+.pagina-biblioteca .curso-item:hover::after {
+    width: calc(100% - 36px);
+}
+
+.pagina-biblioteca .curso-item.oculto-filtro {
+    display: none !important;
+}
+
+.pagina-biblioteca .curso-info {
+    padding: 18px;
+}
+
+.pagina-biblioteca .curso-info h3 {
+    color: #2d1945;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.pagina-biblioteca .curso-info p {
+    color: #746b80;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.pagina-biblioteca .curso-plataforma {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 5px 9px;
+    border-radius: 20px;
+    background: #f2ebff;
+    color: #6840a3;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pagina-biblioteca .curso-assistir {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 13px;
+    border-top: 1px solid #f0ebf6;
+    color: #6234a7;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.pagina-biblioteca .curso-assistir span {
+    transition: transform 0.2s ease;
+}
+
+.pagina-biblioteca .curso-assistir:hover span {
+    transform: translate(3px, -2px);
+}
+
+/* =========================================
+   ÁREA DE FILTROS
+========================================= */
+
+.pagina-biblioteca .filtros-cursos {
+    display: grid;
+    grid-template-columns: minmax(200px, 1fr) minmax(180px, 245px) auto;
+    gap: 12px;
+    align-items: end;
+    margin: 25px 0 8px;
+    padding: 17px;
+    border: 1px solid #eee6f8;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #fff 65%, #faf6ff);
+    box-shadow: 0 7px 24px rgba(55, 25, 100, 0.045);
+}
+
+.pagina-biblioteca .campo-busca-cursos {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    padding: 0 13px;
+    border: 1px solid #e6def1;
+    border-radius: 11px;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pagina-biblioteca .campo-busca-cursos:focus-within {
+    border-color: #956bd0;
+    box-shadow: 0 0 0 3px rgba(125, 78, 195, 0.10);
+}
+
+.pagina-biblioteca .campo-busca-cursos > span {
+    color: #7142b7;
+    font-size: 27px;
+    line-height: 1;
+}
+
+.pagina-biblioteca .campo-busca-cursos input {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: #302044;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+}
+
+.pagina-biblioteca .campo-busca-cursos input::placeholder {
+    color: #a39aaf;
+}
+
+.pagina-biblioteca .campo-categoria {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #756587;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.pagina-biblioteca .campo-categoria select {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 11px;
+    border: 1px solid #e6def1;
+    border-radius: 11px;
+    outline: none;
+    background: #fff;
+    color: #514660;
+    font-family: "DM Sans", sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.pagina-biblioteca .campo-categoria select:focus {
+    border-color: #956bd0;
+}
+
+.pagina-biblioteca .limpar-filtros {
+    min-height: 43px;
+    padding: 11px 14px;
+    border: 0;
+    border-radius: 10px;
+    background: #eee6fb;
+    color: #5426a8;
+    font-family: "DM Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.pagina-biblioteca .limpar-filtros:hover {
+    transform: translateY(-1px);
+    background: #e1d1f9;
+}
+
+.pagina-biblioteca .mensagem-filtro {
+    min-height: 18px;
+    margin: 12px 2px 20px;
+    color: #81718f;
+    font-size: 12px;
+}
+
+/* Resultado vazio */
+.pagina-biblioteca .resultado-vazio[hidden] {
+    display: none !important;
+}
+
+.pagina-biblioteca .resultado-vazio {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.pagina-biblioteca .resultado-vazio .limpar-filtros {
+    margin-top: 10px;
+}
+
+/* =========================================
+   RESPONSIVIDADE
+========================================= */
+
+@media (max-width: 900px) {
+    .pagina-biblioteca .filtros-cursos {
+        grid-template-columns: minmax(0, 1fr) minmax(170px, 0.8fr);
+    }
+
+    .pagina-biblioteca .campo-busca-cursos {
+        grid-column: 1 / -1;
+    }
+
+    .pagina-biblioteca .limpar-filtros {
+        width: 100%;
+    }
+
+    .pagina-biblioteca .catalogo::before {
+        left: -10px;
+    }
+
+    .pagina-biblioteca .catalogo::after {
+        right: -8px;
+    }
+}
+
+@media (max-width: 520px) {
+    .pagina-biblioteca .filtros-cursos {
+        grid-template-columns: 1fr;
+        padding: 12px;
+    }
+
+    .pagina-biblioteca .campo-busca-cursos {
+        grid-column: auto;
+    }
+
+    .pagina-biblioteca .catalogo::before,
+    .pagina-biblioteca .catalogo::after {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .pagina-biblioteca .curso-item,
+    .pagina-biblioteca .curso-item::after,
+    .pagina-biblioteca .curso-assistir span {
+        transition: none;
+    }
+}

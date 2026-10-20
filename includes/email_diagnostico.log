@@ -1,0 +1,156 @@
+2026-10-19 20:06:55 | SMTP nível 2 | SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 5a478bee46e88-360813b6e33sm35535760eec.7 - gsmtp
+
+2026-10-19 20:06:55 | SMTP nível 1 | CLIENT -> SERVER: EHLO localhost
+
+2026-10-19 20:06:56 | SMTP nível 2 | SERVER -> CLIENT: 250-smtp.gmail.com at your service, [177.75.69.54]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-10-19 20:06:56 | SMTP nível 1 | CLIENT -> SERVER: STARTTLS
+
+2026-10-19 20:06:56 | SMTP nível 2 | SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-10-19 20:06:56 | SMTP nível 1 | CLIENT -> SERVER: EHLO localhost
+
+2026-10-19 20:06:57 | SMTP nível 2 | SERVER -> CLIENT: 250-smtp.gmail.com at your service, [177.75.69.54]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-10-19 20:06:57 | SMTP nível 1 | CLIENT -> SERVER: AUTH LOGIN
+
+2026-10-19 20:06:57 | SMTP nível 2 | SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-10-19 20:06:57 | SMTP nível 1 | CLIENT -> SERVER: [credentials hidden]
+2026-10-19 20:06:57 | SMTP nível 2 | SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-10-19 20:06:57 | SMTP nível 1 | CLIENT -> SERVER: [credentials hidden]
+2026-10-19 20:06:57 | SMTP nível 2 | SERVER -> CLIENT: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5a478bee46e88-360813b6e33sm35535760eec.7 - gsmtp
+
+2026-10-19 20:06:57 | SMTP nível 1 | SMTP ERROR: Password command failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5a478bee46e88-360813b6e33sm35535760eec.7 - gsmtp
+
+2026-10-19 20:06:57 | SMTP nível 2 | SMTP Error: Could not authenticate.
+2026-10-19 20:06:57 | SMTP nível 1 | CLIENT -> SERVER: QUIT
+
+2026-10-19 20:06:57 | SMTP nível 2 | SERVER -> CLIENT: 
+2026-10-19 20:06:57 | SMTP nível 1 | SMTP ERROR: QUIT command failed: 
+2026-10-19 20:06:57 | SMTP nível 2 | SMTP Error: Could not authenticate.
+2026-10-19 20:06:57
+Erro: SMTP Error: Could not authenticate.
+PHPMailer: SMTP Error: Could not authenticate. SMTP server error: QUIT command failed
+-------------------------
+2026-10-19 20:07:03 | SMTP nível 2 | SERVER -> CLIENT: 220 smtp.gmail.com ESMTP a92af1059eb24-1831c2e7bf4sm27011506c88.20 - gsmtp
+
+2026-10-19 20:07:03 | SMTP nível 1 | CLIENT -> SERVER: EHLO localhost
+
+2026-10-19 20:07:03 | SMTP nível 2 | SERVER -> CLIENT: 250-smtp.gmail.com at your service, [177.75.69.54]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-10-19 20:07:03 | SMTP nível 1 | CLIENT -> SERVER: STARTTLS
+
+2026-10-19 20:07:03 | SMTP nível 2 | SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-10-19 20:07:04 | SMTP nível 1 | CLIENT -> SERVER: EHLO localhost
+
+2026-10-19 20:07:04 | SMTP nível 2 | SERVER -> CLIENT: 250-smtp.gmail.com at your service, [177.75.69.54]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-10-19 20:07:04 | SMTP nível 1 | CLIENT -> SERVER: AUTH LOGIN
+
+2026-10-19 20:07:04 | SMTP nível 2 | SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-10-19 20:07:04 | SMTP nível 1 | CLIENT -> SERVER: [credentials hidden]
+2026-10-19 20:07:05 | SMTP nível 2 | SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-10-19 20:07:05 | SMTP nível 1 | CLIENT -> SERVER: [credentials hidden]
+2026-10-19 20:07:05 | SMTP nível 2 | SERVER -> CLIENT: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a92af1059eb24-1831c2e7bf4sm27011506c88.20 - gsmtp
+
+2026-10-19 20:07:05 | SMTP nível 1 | SMTP ERROR: Password command failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials a92af1059eb24-1831c2e7bf4sm27011506c88.20 - gsmtp
+
+2026-10-19 20:07:05 | SMTP nível 2 | SMTP Error: Could not authenticate.
+2026-10-19 20:07:05 | SMTP nível 1 | CLIENT -> SERVER: QUIT
+
+2026-10-19 20:07:05 | SMTP nível 2 | SERVER -> CLIENT: 
+2026-10-19 20:07:05 | SMTP nível 1 | SMTP ERROR: QUIT command failed: 
+2026-10-19 20:07:05 | SMTP nível 2 | SMTP Error: Could not authenticate.
+2026-10-19 20:07:05
+Erro: SMTP Error: Could not authenticate.
+PHPMailer: SMTP Error: Could not authenticate. SMTP server error: QUIT command failed
+-------------------------
+2026-10-19 21:49:52 | SMTP nível 2 | SERVER -> CLIENT: 220 smtp.gmail.com ESMTP 5a478bee46e88-360819be413sm34298958eec.13 - gsmtp
+
+2026-10-19 21:49:52 | SMTP nível 1 | CLIENT -> SERVER: EHLO localhost
+
+2026-10-19 21:49:52 | SMTP nível 2 | SERVER -> CLIENT: 250-smtp.gmail.com at your service, [177.75.69.54]
+250-SIZE 35882577
+250-8BITMIME
+250-STARTTLS
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-10-19 21:49:52 | SMTP nível 1 | CLIENT -> SERVER: STARTTLS
+
+2026-10-19 21:49:52 | SMTP nível 2 | SERVER -> CLIENT: 220 2.0.0 Ready to start TLS
+
+2026-10-19 21:49:53 | SMTP nível 1 | CLIENT -> SERVER: EHLO localhost
+
+2026-10-19 21:49:54 | SMTP nível 2 | SERVER -> CLIENT: 250-smtp.gmail.com at your service, [177.75.69.54]
+250-SIZE 35882577
+250-8BITMIME
+250-AUTH LOGIN PLAIN XOAUTH2 PLAIN-CLIENTTOKEN OAUTHBEARER XOAUTH
+250-ENHANCEDSTATUSCODES
+250-PIPELINING
+250-CHUNKING
+250 SMTPUTF8
+
+2026-10-19 21:49:54 | SMTP nível 1 | CLIENT -> SERVER: AUTH LOGIN
+
+2026-10-19 21:49:54 | SMTP nível 2 | SERVER -> CLIENT: 334 VXNlcm5hbWU6
+
+2026-10-19 21:49:54 | SMTP nível 1 | CLIENT -> SERVER: [credentials hidden]
+2026-10-19 21:49:54 | SMTP nível 2 | SERVER -> CLIENT: 334 UGFzc3dvcmQ6
+
+2026-10-19 21:49:54 | SMTP nível 1 | CLIENT -> SERVER: [credentials hidden]
+2026-10-19 21:49:54 | SMTP nível 2 | SERVER -> CLIENT: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5a478bee46e88-360819be413sm34298958eec.13 - gsmtp
+
+2026-10-19 21:49:54 | SMTP nível 1 | SMTP ERROR: Password command failed: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 5a478bee46e88-360819be413sm34298958eec.13 - gsmtp
+
+2026-10-19 21:49:54 | SMTP nível 2 | SMTP Error: Could not authenticate.
+2026-10-19 21:49:54 | SMTP nível 1 | CLIENT -> SERVER: QUIT
+
+2026-10-19 21:49:54 | SMTP nível 2 | SERVER -> CLIENT: 
+2026-10-19 21:49:54 | SMTP nível 1 | SMTP ERROR: QUIT command failed: 
+2026-10-19 21:49:54 | SMTP nível 2 | SMTP Error: Could not authenticate.
+2026-10-19 21:49:54
+Erro: SMTP Error: Could not authenticate.
+PHPMailer: SMTP Error: Could not authenticate. SMTP server error: QUIT command failed
+-------------------------

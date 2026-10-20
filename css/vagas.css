@@ -1,0 +1,387 @@
+/* ==========================================
+   STARTWAY — VAGAS DISPONÍVEIS
+   (o menu lateral fica em menu.css)
+========================================== */
+
+:root {
+    --v-roxo: #6d28d9;
+    --v-escuro: #2d174c;
+    --v-texto: #24143d;
+    --v-suave: #817391;
+    --v-sombra: 0 18px 55px rgba(46, 19, 89, .11);
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { min-height: 100%; }
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--v-texto);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%, rgba(167, 139, 250, .28), transparent 28rem),
+        radial-gradient(circle at 55% 95%, rgba(124, 58, 237, .12), transparent 30rem),
+        #f7f3ff;
+}
+
+button, input, select, textarea { font: inherit; }
+
+/* ---------- Conteúdo ---------- */
+.conteudo {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 90% 0%, rgba(196, 181, 253, .38), transparent 26rem),
+        linear-gradient(135deg, #faf8ff, #f3edff 52%, #fbfaff);
+}
+
+.vagas-pagina {
+    width: 100%;
+    max-width: 1190px;
+    margin: 0 auto;
+    padding: 20px 42px 42px; /* topo menor: o menu.css já reserva espaço p/ o ☰ */
+}
+
+/* ---------- Cabeçalho roxo ---------- */
+.vagas-topo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    margin-bottom: 28px;
+    padding: clamp(28px, 4vw, 44px);
+    border: 1px solid rgba(255, 255, 255, .55);
+    border-radius: 27px;
+    color: #fff;
+    background:
+        radial-gradient(circle at 88% 18%, rgba(216, 180, 254, .28), transparent 13rem),
+        linear-gradient(115deg, #35145c, #6d28d9 55%, #8b5cf6);
+    box-shadow: 0 22px 55px rgba(91, 33, 182, .22);
+    animation: vagasSubir .55s ease both;
+}
+
+.vagas-topo::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -85px;
+    right: -32px;
+    width: 255px;
+    height: 255px;
+    border: 1px solid rgba(255, 255, 255, .23);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 19px rgba(255, 255, 255, .055),
+        0 0 0 43px rgba(255, 255, 255, .035),
+        0 0 0 69px rgba(255, 255, 255, .025);
+    pointer-events: none;
+}
+
+.hero-etiqueta,
+.secao-etiqueta {
+    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+}
+.hero-etiqueta { color: #e9ddff; }
+.secao-etiqueta { color: var(--v-roxo); }
+
+.vagas-topo h1 {
+    max-width: 700px;
+    margin: 0 0 12px;
+    color: #fff;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 850;
+    line-height: 1.1;
+    letter-spacing: -1.4px;
+}
+.vagas-topo h1 span { color: #eadcff; }
+
+.vagas-topo p {
+    max-width: 620px;
+    margin: 0;
+    color: rgba(255, 255, 255, .86);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* ---------- Seção ---------- */
+.vagas-secao {
+    margin-bottom: 25px;
+    padding: clamp(21px, 3vw, 31px);
+    border: 1px solid rgba(255, 255, 255, .9);
+    border-radius: 23px;
+    background: rgba(255, 255, 255, .83);
+    box-shadow: var(--v-sombra);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    animation: vagasSubir .6s ease both;
+}
+
+.vagas-secao-titulo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 25px;
+}
+
+.vagas-secao-titulo h2 {
+    margin: 0 0 8px;
+    color: var(--v-escuro);
+    font-size: clamp(20px, 2vw, 25px);
+    font-weight: 820;
+    letter-spacing: -.6px;
+}
+
+.vagas-secao-titulo p {
+    margin: 0;
+    color: var(--v-suave);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.vagas-contador {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 8px 13px;
+    border: 1px solid #e6d9ff;
+    border-radius: 999px;
+    color: #6d28d9;
+    background: #f3edff;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+/* ---------- Cartões ---------- */
+.lista-vagas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    align-items: stretch;
+    gap: 18px;
+}
+
+.vaga-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 22px;
+    overflow: hidden;
+    border: 1px solid #ece3fa;
+    border-radius: 19px;
+    background: linear-gradient(150deg, #fff, #faf7ff);
+    box-shadow: 0 7px 22px rgba(53, 20, 92, .055);
+    transition: transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+    animation: vagasSubir .5s ease both;
+}
+
+.vaga-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #a78bfa, #6d28d9, #c4b5fd);
+}
+
+.vaga-card:hover {
+    transform: translateY(-4px);
+    border-color: #d2bdf6;
+    box-shadow: 0 17px 34px rgba(76, 29, 149, .12);
+}
+
+.vaga-card-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.vaga-icone {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #e6d9ff;
+    border-radius: 14px;
+    color: #7c3aed;
+    background: #f3edff;
+    font-size: 21px;
+}
+
+.etiqueta {
+    display: inline-block;
+    max-width: 75%;
+    padding: 7px 10px;
+    border: 1px solid #e6d9ff;
+    border-radius: 999px;
+    color: #7040bb;
+    background: #f4eeff;
+    font-size: 10px;
+    font-weight: 800;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.vaga-card h3 {
+    margin: 0 0 8px;
+    color: #2d174c;
+    font-size: 19px;
+    font-weight: 820;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.vaga-card .empresa {
+    margin: 0 0 13px;
+    color: #7c3aed;
+    font-size: 13px;
+    font-weight: 750;
+    overflow-wrap: anywhere;
+}
+
+.vaga-card .descricao {
+    margin: 0 0 21px;
+    color: #817391;
+    font-size: 13px;
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+
+.informacoes {
+    display: grid;
+    margin-top: auto;
+    margin-bottom: 20px;
+    border-top: 1px solid #f0e9fa;
+}
+
+.informacoes p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 6px 12px;
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0e9fa;
+    font-size: 12px;
+}
+
+.informacoes strong { color: #493261; font-weight: 750; }
+.informacoes span { color: #817391; text-align: right; overflow-wrap: anywhere; }
+
+.botao-vaga {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 46px;
+    margin-top: auto;
+    padding: 12px 17px;
+    border: 0;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(110deg, #8b5cf6, #5b21b6);
+    box-shadow: 0 9px 22px rgba(109, 40, 217, .24);
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.botao-vaga:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 13px 27px rgba(109, 40, 217, .31);
+}
+
+.botao-vaga span { font-size: 20px; line-height: 1; }
+
+/* ---------- Sem vagas ---------- */
+.vagas-vazio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 220px;
+    padding: 32px 22px;
+    border: 1px dashed #d7c5f2;
+    border-radius: 18px;
+    color: #857695;
+    background: linear-gradient(145deg, #faf7ff, #fff);
+    text-align: center;
+}
+
+.vazio-icone {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 14px;
+    border: 1px solid #e5d8fb;
+    border-radius: 16px;
+    color: #7c3aed;
+    background: #f1e9ff;
+    font-size: 26px;
+}
+
+.vagas-vazio h3 { margin: 0 0 8px; color: #382151; font-size: 17px; }
+.vagas-vazio p { max-width: 470px; margin: 0; font-size: 13px; line-height: 1.8; }
+
+.vagas-rodape {
+    padding: 8px 0 20px;
+    color: #817391;
+    font-size: 12px;
+    text-align: center;
+}
+
+@keyframes vagasSubir {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 1050px) {
+    .vagas-pagina { padding: 20px 30px 30px; }
+}
+
+@media (max-width: 760px) {
+    .vagas-pagina { padding: 12px 16px 28px; }
+    .vagas-topo { padding: 27px 22px; border-radius: 21px; }
+    .vagas-topo h1 { font-size: clamp(28px, 7vw, 36px); }
+    .vagas-topo p { font-size: 13px; }
+    .vagas-secao { padding: 20px 16px; border-radius: 19px; }
+    .lista-vagas { grid-template-columns: 1fr; }
+    .vaga-card { padding: 20px; }
+    .vagas-secao-titulo { align-items: flex-start; }
+}
+
+@media (max-width: 400px) {
+    .vagas-pagina { padding-right: 12px; padding-left: 12px; }
+    .vagas-topo { padding: 23px 18px; }
+    .vagas-secao { padding: 18px 14px; }
+    .vaga-card { padding: 17px 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

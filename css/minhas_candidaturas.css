@@ -1,0 +1,193 @@
+/* ========================================
+   STARTWAY — MINHAS CANDIDATURAS
+======================================== */
+
+.conteudo > h1 {
+    margin: 0 0 10px;
+    color: #2d174c;
+    font-size: clamp(28px, 4vw, 36px);
+    font-weight: 850;
+    letter-spacing: -0.8px;
+}
+
+.conteudo > h1::after {
+    content: "";
+    display: block;
+    width: 65px;
+    height: 4px;
+    margin-top: 12px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #7138cf, #c084fc);
+}
+
+/* Lista de candidaturas */
+
+.conteudo {
+    min-width: 0;
+}
+
+.conteudo > article.vaga-card {
+    position: relative;
+    margin: 22px 0;
+    padding: 25px 27px;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #ece3fa;
+    border-radius: 18px;
+    box-shadow: 0 8px 26px rgba(50, 16, 92, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.conteudo > article.vaga-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, #7138cf, #c084fc);
+}
+
+.conteudo > article.vaga-card:hover {
+    transform: translateY(-3px);
+    border-color: #d8c3fa;
+    box-shadow: 0 13px 32px rgba(50, 16, 92, 0.10);
+}
+
+/* Título da vaga */
+
+.vaga-card h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+    line-height: 1.4;
+    font-weight: 800;
+    color: #351b57;
+}
+
+.vaga-card h2 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.vaga-card h2 a:hover {
+    color: #7138cf;
+}
+
+/* Informações da candidatura */
+
+.vaga-card p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+
+    margin: 12px 0 0;
+    color: #71647f;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Nome da empresa */
+
+.vaga-card p:first-of-type {
+    color: #512d7c;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+/* Data da candidatura */
+
+.vaga-card p:nth-of-type(2) {
+    color: #81758f;
+}
+
+/* Status da candidatura */
+
+.vaga-card p:nth-of-type(3) {
+    display: inline-flex;
+    margin-top: 17px;
+    padding: 7px 13px;
+
+    border: 1px solid #e4d5fb;
+    border-radius: 30px;
+
+    background: #f3ecff;
+    color: #6428bd;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* Mensagem quando não há candidaturas */
+
+.conteudo > p {
+    margin-top: 25px;
+    color: #766b86;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.conteudo > a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-top: 12px;
+    padding: 12px 20px;
+
+    border-radius: 11px;
+    background: linear-gradient(135deg, #8b50e8, #6428bd);
+    color: #ffffff;
+
+    font-weight: 800;
+    text-decoration: none;
+
+    box-shadow: 0 5px 14px rgba(100, 40, 189, 0.18);
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.conteudo > a:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.07);
+}
+
+/* Responsividade */
+
+@media (max-width: 700px) {
+    .conteudo > h1 {
+        font-size: 27px;
+    }
+
+    .conteudo > article.vaga-card {
+        margin: 17px 0;
+        padding: 21px 18px 21px 22px;
+        border-radius: 15px;
+    }
+
+    .vaga-card h2 {
+        font-size: 18px;
+    }
+
+    .vaga-card p {
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vaga-card,
+    .vaga-card h2 a,
+    .conteudo > a {
+        transition: none;
+    }
+
+    .vaga-card:hover,
+    .conteudo > a:hover {
+        transform: none;
+    }
+}

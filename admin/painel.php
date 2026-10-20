@@ -1,0 +1,4 @@
+<?php
+require_once dirname(__DIR__).'/includes/admin_helpers.php'; exigirAdmin();
+$consultas=['Usuários'=>'SELECT COUNT(*) n FROM usuarios','Jovens'=>"SELECT COUNT(*) n FROM usuarios WHERE tipo='jovem'",'Empresas'=>"SELECT COUNT(*) n FROM usuarios WHERE tipo='empresa'",'Vagas abertas'=>"SELECT COUNT(*) n FROM vagas WHERE status='aberta'",'Candidaturas'=>'SELECT COUNT(*) n FROM candidaturas','Cursos'=>'SELECT COUNT(*) n FROM cursos'];
+adminHeader('Painel administrativo');echo '<section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem">';foreach($consultas as $nome=>$sql){$r=$conexao->query($sql);$n=$r?(int)$r->fetch_assoc()['n']:0;echo '<article style="padding:1rem;border:1px solid #ddd;border-radius:12px"><h2>'.e($nome).'</h2><p style="font-size:2rem">'.$n.'</p></article>'; }echo '</section>';adminFooter();

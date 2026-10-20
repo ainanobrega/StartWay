@@ -1,0 +1,843 @@
+
+/* ========================================
+   STARTWAY — LANDING PAGE
+======================================== */
+
+:root {
+    --roxo: #7945f5;
+    --roxo-claro: #a77bff;
+    --fundo: #10082c;
+    --texto: #ffffff;
+    --texto-suave: #d1c8e9;
+    --borda-roxa: rgba(172, 127, 255, 0.55);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    background: #10082c;
+    color: var(--texto);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+/* ========================================
+   CABEÇALHO
+======================================== */
+
+
+.cabecalho {
+    position: relative;
+    z-index: 20;
+    min-height: 76px;
+    padding: 10px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    background: linear-gradient(
+        100deg,
+        rgba(30, 16, 76, 0.98),
+        rgba(17, 10, 48, 0.98)
+    );
+    border-bottom: 1px solid rgba(185, 151, 255, 0.12);
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    display: block;
+    width: 180px;
+    max-width: 100%;
+    height: 48px;
+    object-fit: contain;
+}
+
+.navegacao-principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(20px, 3.5vw, 55px);
+}
+
+.navegacao-principal a {
+    color: #eee9ff;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.navegacao-principal a:hover {
+    color: var(--roxo-claro);
+}
+
+.acoes-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.botao-entrar,
+.botao-cadastrar {
+    min-width: 118px;
+    min-height: 48px;
+    padding: 13px 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.25s ease;
+}
+
+.botao-entrar {
+    border: 1.5px solid #9861ff;
+    background: transparent;
+}
+
+.botao-entrar:hover {
+    background: rgba(133, 75, 255, 0.16);
+}
+
+.botao-cadastrar {
+    background: linear-gradient(110deg, #8c43ff, #713ff1);
+    box-shadow: 0 7px 25px rgba(108, 58, 245, 0.22);
+}
+
+.botao-cadastrar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(108, 58, 245, 0.4);
+}
+
+/* Menu lateral: botão aparece em telas menores */
+
+.cabecalho .botao-menu {
+    display: none;
+    width: 43px;
+    height: 43px;
+    padding: 10px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border: 1px solid var(--borda-roxa);
+    border-radius: 10px;
+    background: rgba(36, 19, 82, 0.9);
+    cursor: pointer;
+}
+
+.cabecalho .botao-menu span {
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background: #ffffff;
+}
+
+/* ========================================
+   HERO — PRIMEIRA TELA
+======================================== */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    min-height: min(740px, calc(100vh - 98px));
+    padding: 65px 4.7%;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.9fr);
+    align-items: center;
+    gap: clamp(35px, 5vw, 90px);
+    overflow: hidden;
+    background: #160b42;
+}
+
+/*
+  A imagem precisa estar em:
+  img/fundo-tecnologia.jpg
+
+  Como este CSS está dentro de css/,
+  usamos ../img/ para chegar à pasta img.
+*/
+
+.hero-fundo {
+    position: absolute;
+    z-index: -3;
+    inset: 0;
+    background-image: url("../img/fundo-tecnologia.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transform: scale(1.02);
+}
+
+.hero-sombra {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(22, 10, 70, 0.96) 0%,
+            rgba(30, 12, 87, 0.82) 34%,
+            rgba(32, 12, 86, 0.49) 63%,
+            rgba(20, 8, 49, 0.66) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(24, 8, 65, 0.5),
+            rgba(46, 20, 116, 0.12)
+        );
+}
+
+.hero-conteudo {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 700px;
+}
+
+.etiqueta {
+    width: fit-content;
+    margin-bottom: 24px;
+    padding: 10px 17px 10px 11px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(198, 169, 255, 0.18);
+    border-radius: 40px;
+    background: rgba(121, 65, 240, 0.42);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+}
+
+.etiqueta-icone {
+    width: 29px;
+    height: 29px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(191, 157, 255, 0.25);
+    color: #e3d1ff;
+    font-size: 19px;
+}
+
+.hero h1 {
+    margin: 0;
+    max-width: 760px;
+    color: #ffffff;
+    font-size: clamp(42px, 4.3vw, 69px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -2.8px;
+}
+
+.hero h1 span {
+    display: block;
+    color: #c09aff;
+}
+
+.hero-descricao {
+    max-width: 500px;
+    margin: 24px 0 30px;
+    color: #f0eaff;
+    font-size: clamp(16px, 1.35vw, 20px);
+    line-height: 1.65;
+}
+
+.hero-acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+
+.botao-principal,
+.botao-secundario {
+    min-height: 59px;
+    padding: 17px 27px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    border-radius: 40px;
+    font-size: 15px;
+    font-weight: 750;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.botao-principal {
+    background: linear-gradient(110deg, #914cff, #713ef1);
+    box-shadow: 0 10px 28px rgba(91, 39, 218, 0.24);
+}
+
+.botao-principal span {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.botao-principal:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 35px rgba(120, 60, 255, 0.35);
+}
+
+.botao-secundario {
+    border: 1.5px solid #a36bff;
+    background: rgba(22, 9, 66, 0.36);
+}
+
+.botao-secundario:hover {
+    transform: translateY(-3px);
+    background: rgba(121, 65, 240, 0.22);
+}
+
+.hero-indicadores {
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 23px;
+}
+
+.hero-indicadores div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #e1d6fa;
+    font-size: 12px;
+}
+
+.indicador-ponto {
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #a97aff;
+    box-shadow: 0 0 12px rgba(169, 122, 255, 0.7);
+}
+
+/* ========================================
+   PAINEL TRANSLÚCIDO À DIREITA
+======================================== */
+
+.painel-beneficios {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 485px;
+    justify-self: end;
+    padding: 32px;
+    border: 1px solid rgba(176, 130, 255, 0.68);
+    border-radius: 22px;
+    background: linear-gradient(
+        140deg,
+        rgba(37, 21, 93, 0.88),
+        rgba(22, 12, 60, 0.88)
+    );
+    box-shadow:
+        0 20px 65px rgba(7, 2, 28, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+.painel-cabecalho {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.painel-etiqueta {
+    color: #c4a8ff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.painel-estrela {
+    color: #b78cff;
+    font-size: 22px;
+}
+
+.painel-beneficios h2 {
+    margin: 0 0 27px;
+    max-width: 360px;
+    color: #ffffff;
+    font-size: clamp(23px, 2vw, 29px);
+    line-height: 1.3;
+    letter-spacing: -0.7px;
+}
+
+.beneficio {
+    margin-top: 23px;
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    align-items: start;
+    gap: 17px;
+}
+
+.beneficio-icone {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+    background: linear-gradient(140deg, #9255ff, #6f39e8);
+    color: #ffffff;
+    font-size: 28px;
+    box-shadow: 0 7px 20px rgba(99, 51, 212, 0.2);
+}
+
+.beneficio h3 {
+    margin: 3px 0 7px;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.beneficio p {
+    margin: 0;
+    color: #d0c5e9;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.painel-link {
+    margin-top: 28px;
+    padding-top: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(210, 190, 255, 0.15);
+    color: #c9aaff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.painel-link span {
+    font-size: 20px;
+}
+
+/* Brilhos decorativos */
+
+.hero-decoracao {
+    position: absolute;
+    z-index: -1;
+    display: block;
+    border-radius: 50%;
+    pointer-events: none;
+    filter: blur(1px);
+}
+
+.decoracao-um {
+    top: 12%;
+    left: 43%;
+    width: 180px;
+    height: 180px;
+    background: rgba(124, 57, 255, 0.17);
+    filter: blur(75px);
+}
+
+.decoracao-dois {
+    right: 17%;
+    bottom: 0;
+    width: 240px;
+    height: 160px;
+    background: rgba(80, 78, 255, 0.18);
+    filter: blur(65px);
+}
+
+/* ========================================
+   SEÇÃO EXPLICATIVA
+======================================== */
+
+.secao-plataforma {
+    padding: 100px 7%;
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: center;
+    gap: 65px;
+    background:
+        radial-gradient(
+            ellipse at 0% 30%,
+            rgba(111, 57, 211, 0.13),
+            transparent 48%
+        ),
+        #100a26;
+}
+
+.secao-texto {
+    max-width: 490px;
+}
+
+.secao-etiqueta {
+    color: #b18aff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.secao-texto h2,
+.secao-empresas h2 {
+    margin: 17px 0;
+    color: #ffffff;
+    font-size: clamp(30px, 3vw, 43px);
+    line-height: 1.2;
+    letter-spacing: -1.5px;
+}
+
+.secao-texto h2 span,
+.secao-empresas h2 span {
+    display: block;
+    color: #b994ff;
+}
+
+.secao-texto > p,
+.secao-empresas p {
+    color: #c5badb;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.link-saiba-mais {
+    margin-top: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #c5a7ff;
+    font-weight: 700;
+}
+
+.passos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.passo-card {
+    position: relative;
+    min-height: 235px;
+    padding: 24px 18px;
+    border: 1px solid rgba(180, 143, 255, 0.16);
+    border-radius: 17px;
+    background: rgba(39, 23, 76, 0.58);
+    transition: 0.25s ease;
+}
+
+.passo-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(180, 143, 255, 0.5);
+    background: rgba(51, 29, 99, 0.7);
+}
+
+.passo-numero {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    color: rgba(197, 167, 255, 0.55);
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.passo-icone {
+    width: 43px;
+    height: 43px;
+    margin-bottom: 26px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(132, 75, 246, 0.2);
+    color: #c5a5ff;
+    font-size: 25px;
+}
+
+.passo-card h3 {
+    margin: 0 0 11px;
+    color: #ffffff;
+    font-size: 15px;
+    line-height: 1.45;
+}
+
+.passo-card p {
+    margin: 0;
+    color: #bfb3d5;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+/* ========================================
+   SEÇÃO PARA EMPRESAS
+======================================== */
+
+.secao-empresas {
+    margin: 0;
+    padding: 60px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+    border-top: 1px solid rgba(180, 143, 255, 0.12);
+    border-bottom: 1px solid rgba(180, 143, 255, 0.12);
+    background:
+        radial-gradient(
+            ellipse at 80% 50%,
+            rgba(120, 62, 237, 0.2),
+            transparent 55%
+        ),
+        #171035;
+}
+
+.secao-empresas > div {
+    max-width: 620px;
+}
+
+.secao-empresas h2 {
+    margin-bottom: 12px;
+}
+
+.secao-empresas p {
+    margin: 0;
+}
+
+/* ========================================
+   RODAPÉ
+======================================== */
+
+.rodape {
+    padding: 27px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    background: #0c071d;
+}
+
+.logo-rodape {
+    color: #ffffff;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -0.8px;
+}
+
+.logo-rodape span {
+    color: #a77bff;
+}
+
+.rodape p {
+    margin: 0;
+    color: #a79bbd;
+    font-size: 12px;
+}
+
+.rodape-links {
+    display: flex;
+    gap: 20px;
+    color: #d8c9f4;
+    font-size: 12px;
+}
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (max-width: 1100px) {
+    .cabecalho {
+        gap: 20px;
+    }
+
+    .logo img {
+        width: 185px;
+    }
+
+    .navegacao-principal {
+        gap: 20px;
+    }
+
+    .hero {
+        padding: 55px 4%;
+        grid-template-columns: minmax(0, 1fr) minmax(330px, 0.85fr);
+        gap: 28px;
+    }
+
+    .painel-beneficios {
+        padding: 25px;
+    }
+
+    .hero h1 {
+        font-size: clamp(40px, 4.5vw, 56px);
+    }
+
+    .secao-plataforma {
+        padding: 75px 5%;
+        gap: 35px;
+    }
+}
+
+/* ========================================
+   CELULARES
+======================================== */
+
+@media (max-width: 760px) {
+    .cabecalho {
+        min-height: 78px;
+        padding: 14px 5%;
+        flex-wrap: wrap;
+    }
+
+    .logo img {
+        width: 165px;
+    }
+
+    .navegacao-principal {
+        display: none;
+    }
+
+    .acoes-cabecalho {
+        margin-left: auto;
+        gap: 8px;
+    }
+
+    .botao-entrar,
+    .botao-cadastrar {
+        min-width: auto;
+        min-height: 40px;
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+
+    .cabecalho .botao-menu {
+        display: flex;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 65px 6% 45px;
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .hero-fundo {
+        background-position: center;
+    }
+
+    .hero-sombra {
+        background: linear-gradient(
+            180deg,
+            rgba(20, 8, 62, 0.9),
+            rgba(20, 8, 62, 0.8)
+        );
+    }
+
+    .hero h1 {
+        font-size: clamp(39px, 9.5vw, 58px);
+        letter-spacing: -1.8px;
+    }
+
+    .hero-descricao {
+        font-size: 16px;
+    }
+
+    .hero-indicadores {
+        gap: 12px 20px;
+    }
+
+    .painel-beneficios {
+        max-width: none;
+        justify-self: stretch;
+        padding: 25px 22px;
+    }
+
+    .painel-beneficios h2 {
+        font-size: 25px;
+    }
+
+    .beneficio {
+        grid-template-columns: 48px minmax(0, 1fr);
+        gap: 13px;
+    }
+
+    .beneficio-icone {
+        width: 48px;
+        height: 48px;
+    }
+
+    .secao-plataforma {
+        padding: 65px 6%;
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .passos {
+        grid-template-columns: 1fr;
+    }
+
+    .passo-card {
+        min-height: auto;
+        padding: 23px;
+    }
+
+    .passo-icone {
+        margin-bottom: 17px;
+    }
+
+    .secao-empresas {
+        padding: 50px 6%;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .rodape {
+        padding: 25px 6%;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 390px) {
+    .logo img {
+        width: 125px;
+    }
+
+    .acoes-cabecalho {
+        gap: 6px;
+    }
+
+    .botao-entrar,
+    .botao-cadastrar {
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .hero-acoes {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .botao-principal,
+    .botao-secundario {
+        width: 100%;
+    }
+}
