@@ -1,45 +1,123 @@
-# StartWay
+StartWay
 
-Plataforma em PHP puro + mysqli, MySQL, HTML/CSS e JavaScript vanilla.
+Conectando jovens a oportunidades e ao futuro da tecnologia.
 
-## Requisitos e configuração
-- PHP 8.1+ com `mysqli`, `mysqlnd` e `fileinfo`; MySQL 8+ ou MariaDB compatível; Apache com PHP.
-- Configure `STARTWAY_DB_HOST`, `STARTWAY_DB_PORT`, `STARTWAY_DB_USER`, `STARTWAY_DB_PASSWORD` e `STARTWAY_DB_NAME` no ambiente do servidor. Fallback apenas para desenvolvimento: `localhost:3306`, usuário `root`, senha vazia e banco `startway`.
-- O banco precisa conter `usuarios.ativo` (`TINYINT(1) NOT NULL DEFAULT 1`), `admin_logs` (`id`, `admin_id`, `acao`, `alvo_tipo`, `alvo_id`, `ip`, `criado_em`), além das tabelas de tentativas e recuperação descritas no requisito de implantação. Este projeto não cria nem altera SQL automaticamente.
+A StartWay é uma plataforma web desenvolvida por Aina Maria e Patrícia Lee com o objetivo de aproximar jovens de oportunidades de estágio e aprendizagem, além de incentivar o desenvolvimento profissional por meio de cursos e recursos educacionais.
 
-## Instalação
-1. Faça backup do banco e configure as variáveis de ambiente.
-2. Importe/revise o esquema por sua conta. Não execute arquivos SQL sem revisar sua compatibilidade com o banco atual.
-3. Configure o document root para a pasta do projeto e habilite HTTPS em produção.
-4. Crie o primeiro administrador pelo terminal, dentro da pasta do projeto: `php admin/criar_admin.php`. O script só funciona em CLI e solicita nome, e-mail e senha; use senha com pelo menos 10 caracteres. Não há senha administrativa fixa.
-5. Acesse `admin/login.php` para entrar na área administrativa.
+O projeto busca facilitar o acesso ao mercado de trabalho, reunindo oportunidades profissionais e caminhos de aprendizagem em um só lugar.
 
-## Estrutura
-- `admin/`: login, painel, usuários, vagas, cursos, logout e script CLI de criação do primeiro admin.
-- `includes/`: bootstrap de sessão, CSRF, autenticação, auditoria e componentes compartilhados.
-- `empresa/`: recursos para contas de empresa.
-- `database/`: arquivos SQL preexistentes, não alterados por esta revisão.
-- `css/`, `js/`, `img/`, `uploads/`: front-end e arquivos enviados.
+Objetivo do projeto
 
-## Checklist de segurança para produção
-- [ ] HTTPS obrigatório e cookies de sessão `Secure`, `HttpOnly` e `SameSite`.
-- [ ] `display_errors=Off`; erros técnicos apenas em logs protegidos.
-- [ ] Credenciais do banco via ambiente e usuário SQL com privilégios mínimos.
-- [ ] Criar `usuarios.ativo` e `admin_logs` conforme a estrutura definida pelo responsável pelo banco.
-- [ ] Revisar permissões de `uploads/`; impedir execução de scripts na pasta.
-- [ ] Configurar envio de e-mail via SMTP confiável. O `mail()` é isolado para facilitar substituição; em ambiente local, o link é gravado no log do PHP.
-- [ ] Backups regulares, testados e armazenados fora do document root.
-- [ ] Revisão de dependências, logs, política de retenção e testes de segurança antes da publicação.
-- [ ] Revisão jurídica dos termos, privacidade e tratamento de dados de menores.
+A StartWay nasceu da ideia de tornar a jornada de entrada no mercado de trabalho mais acessível para jovens que desejam desenvolver suas habilidades e conquistar suas primeiras oportunidades profissionais.
 
-## Testes manuais essenciais
-1. Execute `php admin/criar_admin.php` no terminal e informe credenciais válidas.
-2. Entre em `admin/login.php`; usuário admin ativo deve chegar a `admin/painel.php`.
-3. Tente entrar como jovem/empresa no login administrativo: deve falhar com mensagem genérica.
-4. Faça cinco tentativas incorretas para o mesmo IP/e-mail; o acesso deve ser bloqueado temporariamente.
-5. Envie um POST sem `csrf_token` nas telas protegidas; deve retornar HTTP 403.
-6. Entre como jovem/empresa e tente abrir páginas `admin/`; deve ser redirecionado/negado.
-7. Verifique se alterações administrativas aparecem em `admin_logs`.
+A plataforma também oferece às empresas um espaço para divulgar vagas e encontrar candidatos alinhados aos requisitos das oportunidades.
 
-## Observações
-O código assume as estruturas informadas pelo responsável pelo banco. Confirme especialmente as colunas existentes no banco real antes de publicar. Os textos de termos e privacidade são provisórios e precisam de revisão jurídica.
+Funcionalidades
+
+Para jovens
+
+* Cadastro e autenticação de usuários.
+* Acesso a oportunidades de estágio e aprendizagem.
+* Visualização dos detalhes e requisitos das vagas.
+* Acompanhamento de candidaturas.
+* Acesso a cursos e conteúdos de aprendizagem.
+* Acompanhamento do progresso nos cursos.
+* Gerenciamento de informações do perfil.
+
+Para empresas
+
+* Acesso à área destinada às empresas.
+* Cadastro e gerenciamento de informações empresariais.
+* Publicação e gerenciamento de oportunidades.
+* Visualização de candidatos e informações relacionadas às vagas.
+
+Tecnologias utilizadas
+
+O projeto foi desenvolvido utilizando tecnologias web, sem a utilização de frameworks PHP.
+
+Tecnologia	Utilização
+PHP	Lógica de backend e processamento das funcionalidades
+MySQL	Armazenamento e gerenciamento dos dados
+MySQLi	Comunicação entre PHP e banco de dados
+HTML5	Estrutura das páginas
+CSS3	Estilização e responsividade da interface
+JavaScript	Interatividade e comportamentos dinâmicos
+Apache	Servidor web para execução local
+
+Identidade visual
+
+A interface da StartWay utiliza tons de roxo e lilás, buscando transmitir inovação, criatividade e profissionalismo, com foco em uma experiência intuitiva para jovens e empresas.
+
+Como executar o projeto
+
+Pré-requisitos
+
+Antes de começar, instale ou tenha disponíveis:
+
+* PHP com suporte ao MySQLi.
+* MySQL ou MariaDB.
+* Apache ou outro servidor compatível com PHP.
+* Um navegador atualizado.
+
+O XAMPP pode ser utilizado para configurar o ambiente de desenvolvimento local.
+
+1. Clone o repositório
+
+git clone URL_DO_REPOSITORIO
+
+Entre na pasta do projeto:
+
+cd StartWay
+
+2. Configure o banco de dados
+
+1. Inicie o Apache e o MySQL no seu ambiente local.
+2. Crie um banco de dados para a aplicação.
+3. Importe o arquivo SQL disponibilizado no projeto, conforme a estrutura do repositório.
+4. Configure as credenciais de conexão com o banco de dados de acordo com as instruções do projeto.
+
+3. Configure a conexão
+
+Verifique o arquivo responsável pela conexão com o banco de dados e configure as informações necessárias para o seu ambiente local.
+
+Importante: não compartilhe senhas ou credenciais reais no repositório.
+
+4. Execute a aplicação
+
+Coloque a pasta do projeto no diretório público do servidor Apache, caso necessário, e acesse a aplicação pelo navegador utilizando o endereço local configurado no seu ambiente.
+
+Consulte a configuração do servidor e os arquivos do projeto para confirmar o caminho de acesso correto.
+
+Organização do projeto
+
+A aplicação está organizada em arquivos PHP, estilos, scripts e recursos relacionados ao banco de dados.
+
+StartWay/
+├── css/                 # Arquivos de estilização
+├── includes/            # Componentes e funções compartilhadas
+├── database/            # Arquivos relacionados ao banco de dados
+├── *.php                # Páginas e funcionalidades da aplicação
+├── *.js                 # Scripts de interatividade
+└── README.md            # Documentação do projeto
+
+Observação: a estrutura acima é ilustrativa. Os diretórios e arquivos podem variar conforme a versão do repositório.
+
+Aprendizados e desenvolvimento
+
+O desenvolvimento da StartWay proporcionou a aplicação prática de conhecimentos em desenvolvimento web, integração com banco de dados, organização de código e construção de interfaces.
+
+O projeto também envolve colaboração, resolução de problemas e planejamento de soluções tecnológicas voltadas a uma necessidade real.
+
+Desenvolvedoras
+
+Aina Maria e Patrícia Lee
+
+Projeto desenvolvido em colaboração, unindo conhecimentos técnicos e criatividade para construir uma plataforma voltada à inclusão de jovens no mercado de trabalho.
+
+Status do projeto
+
+Projeto acadêmico em desenvolvimento.
+
+⸻
+
+StartWay | Mais oportunidades, mais aprendizado, mais caminhos para o futuro. 💜
